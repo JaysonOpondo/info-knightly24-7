@@ -35,6 +35,50 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Navigation Bar */
+nav {
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 1rem;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #C8102E;
+}
+
+.site-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo a:hover .site-logo {
+    transform: scale(1.1);
+}
+
 /* Section Styling */
 section {
     background: #fff;
@@ -178,108 +222,13 @@ footer {
     background-color: #C8102E;
 }
 
-/* Navigation Bar */
-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 8vh;
-    background-color: #0d1b2a;
-    color: #fff;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-nav .logo {
-    display: flex;
-    align-items: center;
-}
-
-.nav-links {
-    display: flex;
-    justify-content: space-around;
-    width: 50%;
-}
-
-.nav-links li {
-    list-style: none;
-}
-
-.nav-links a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #C8102E;
-}
-
-.burger {
-    display: none;
-    cursor: pointer;
-}
-
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 5px;
-    transition: all 0.3s ease;
-}
-
-/* Mobile Navigation Styles */
-@media screen and (max-width: 768px) {
-    body {
-        overflow-x: hidden;
-    }
-
-    .nav-links {
-        position: absolute;
-        right: 0px;
-        height: 92vh;
-        top: 8vh;
-        background-color: #0d1b2a;
-        display: flex;
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
         flex-direction: column;
-        align-items: center;
-        width: 100%;
-        transform: translateX(100%);
-        transition: transform 0.5s ease-in;
-        z-index: 999;
     }
 
-    .nav-links li {
-        opacity: 0;
+    nav li {
+        margin: 0.5rem 0;
     }
-
-    .burger {
-        display: block;
-    }
-}
-
-.nav-active {
-    transform: translateX(0%);
-}
-
-/* Burger Animation */
-.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.toggle .line2 {
-    opacity: 0;
-}
-
-.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Hero section on small screens */
-.hero-section {
-    padding-top: 10rem;
 }
