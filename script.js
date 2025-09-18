@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
     const navLinks = document.querySelectorAll('.nav-links li');
+    const navClose = document.querySelector('.nav-close');
 
     if (burger && nav) {
         burger.addEventListener('click', () => {
@@ -30,6 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinks.forEach(l => l.style.animation = ''); // Reset animation
             });
         });
+
+        if (navClose) {
+            navClose.addEventListener('click', () => {
+                nav.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                navLinks.forEach(l => l.style.animation = ''); // Reset animation
+            });
+        }
     }
     
 // Show/hide back to top button

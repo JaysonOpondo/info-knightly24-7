@@ -222,6 +222,96 @@ footer {
     background-color: #C8102E;
 }
 
+/* Burger styles */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 1rem;
+    z-index: 1100;
+}
+
+.burger div {
+    width: 28px;
+    height: 4px;
+    background-color: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Burger animation when active */
+.burger.toggle .line1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+.burger.toggle .line2 {
+    opacity: 0;
+}
+.burger.toggle .line3 {
+    transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Close button for navigation */
+.nav-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 1200;
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70vw;
+        max-width: 320px;
+        height: 100vh;
+        background: #0d1b2a;
+        flex-direction: column;
+        align-items: center;      /* Center horizontally */
+        justify-content: center;  /* Center vertically */
+        padding-top: 0;           /* Remove extra top padding */
+        transition: right 0.3s ease;
+        z-index: 1200;
+        box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+    }
+    .nav-links.nav-active {
+        right: 0;
+    }
+    .nav-links li {
+        opacity: 1;
+        margin: 1.2rem 0;
+        width: 100%;
+        text-align: center;       /* Center text */
+    }
+    .burger {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 1300;
+    }
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        font-size: 2rem;
+        z-index: 1301;
+    }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     nav ul {
