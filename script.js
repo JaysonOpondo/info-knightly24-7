@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 nav.classList.remove('nav-active');
                 burger.classList.remove('toggle');
-                navLinks.forEach(l => l.style.animation = ''); // Reset animation
+                navLinks.forEach(l => l.style.animation = ''); 
             });
         });
 
@@ -36,21 +36,29 @@ document.addEventListener('DOMContentLoaded', () => {
             navClose.addEventListener('click', () => {
                 nav.classList.remove('nav-active');
                 burger.classList.remove('toggle');
-                navLinks.forEach(l => l.style.animation = ''); // Reset animation
+                navLinks.forEach(l => l.style.animation = ''); 
             });
         }
     }
     
-// Show/hide back to top button
-window.onscroll = function() {
-    const btn = document.getElementById('backToTopBtn');
-    if (window.scrollY > 300) {
-        btn.style.display = 'block';
-    } else {
-        btn.style.display = 'none';
+// --- Back to Top Button ---
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    if (backToTopBtn) {
+        window.addEventListener('scroll', () => {
+            // Show the button when the user scrolls down 200px
+            if (window.scrollY > 200) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     }
-};
-document.getElementById('backToTopBtn').onclick = function() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-};
 });
